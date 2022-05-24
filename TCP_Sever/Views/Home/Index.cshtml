@@ -1,6 +1,19 @@
-﻿@{
-    Layout = null;
-}
+﻿@using DisplayDataExample.Code  
+@{  
+   var student = ViewData["Student"] as Student;   
+}  
+<table>  
+   <tr>  
+      <th>Name</th>  
+      <th>Age</th>  
+      <th>City</th>  
+   </tr>  
+   <tr>  
+      <td>@student.Name</td>  
+      <td>@student.Age</td>  
+      <td>@student.City</td>  
+   </tr>  
+</table>  
 
 <!DOCTYPE HTML>
 <html>

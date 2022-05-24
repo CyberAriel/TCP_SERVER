@@ -1,4 +1,7 @@
 ﻿using ASPNET_MVC_ChartsDemo.Models;
+
+using DisplayDataExample.Code;
+
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,6 +14,13 @@ namespace ASPNET_MVC_ChartsDemo.Controllers
 		// GET: Home
 		public ActionResult Index()
 		{
+			var student = new Student()
+			{
+				Name = "Sandeep Singh Shekhawat",
+				Age = 24,
+				City = "Jaipur"
+			};
+			ViewData["Student"] = student;
 			return View();
 		}
 

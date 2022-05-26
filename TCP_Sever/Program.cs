@@ -8,8 +8,8 @@ namespace TCP_Sever
         {
 
 
-            MyTcpListener myTcpListener = new MyTcpListener();
-            myTcpListener.Start();
+           
+            MyTcpListener.Instance.Start();
 
             var builder = WebApplication.CreateBuilder(args);
 

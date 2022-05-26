@@ -11,6 +11,7 @@
         {
             get;
             set;
+
         }
         public string City
         {
@@ -18,4 +19,8 @@
             set;
         }
     }
+
+
+ protected class Dupa  {}
+
 }

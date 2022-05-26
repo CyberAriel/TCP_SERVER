@@ -6,8 +6,20 @@ using System.Text;
 
 class MyTcpListener
 {
+    public string data
+    {
+        get;
+        set;
+    }
+    public static MyTcpListener Instance = new MyTcpListener();
+
+    public void Show(ref string Data)
+    {
+        Data = data;
+    }
     public void Start()
     {
+        
         Task.Run(() =>
         {
 
@@ -29,19 +41,21 @@ class MyTcpListener
            
             // Buffer for reading data
             Byte[] bytes = new Byte[256];
-            String data = null;
+            
 
             // Enter the listening loop.
          
             while (true)
             {
-              
-                Console.Write("Waiting for a connection... ");
+                    data = "Waiting for a connection... ";
+ 
+                 Console.Write("Waiting for a connection... ");
                 
                 // Perform a blocking call to accept requests.
                 // You could also use server.AcceptSocket() here.
                 TcpClient client = server.AcceptTcpClient();
-                Console.WriteLine("Connected!");
+                    data = "Waiting for a connection...Connected! ";
+                    Console.WriteLine("Connected!");
 
                 data = null;
 
@@ -78,14 +92,17 @@ class MyTcpListener
         }
         catch (SocketException e)
         {
+                data = "SocketException: { 0}";
+               
             Console.WriteLine("SocketException: {0}", e);
         }
         finally
         {
             // Stop listening for new clients.
             server.Stop();
+                Console.WriteLine("Disconnected");
         }
-
+            data = "Hit enter to continue...";
         Console.WriteLine("\nHit enter to continue...");
             //Console.Read();
         });
